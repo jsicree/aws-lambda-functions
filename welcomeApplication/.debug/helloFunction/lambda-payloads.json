@@ -1,0 +1,30 @@
+{
+    "helloFunction": {
+        "lambda": {},
+        "apigateway": {
+            "path": "/hello",
+            "method": {
+                "value": "GET",
+                "items": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE",
+                    "HEAD",
+                    "OPTIONS",
+                    "PATCH"
+                ]
+            }
+        }
+    },
+    "": {
+        "apigateway": {
+            "path": "",
+            "method": {
+                "value": "",
+                "items": []
+            },
+            "body": {}
+        }
+    }
+}

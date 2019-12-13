@@ -1,0 +1,16 @@
+{
+    "Functions": {
+        "goodbyeFunction": {
+            "PhysicalId": {
+                "us-west-2": "cloud9-welcomeApplication-goodbyeFunction-1UUPB2XIQPGI3"
+            }
+        },
+        "helloFunction": {
+            "PhysicalId": {
+                "us-west-2": "cloud9-welcomeApplication-helloFunction-1Q0PEK94CZ6X3"
+            }
+        }
+    },
+    "RestApiId": "muxt9wto73",
+    "StackName": "cloud9-welcomeApplication"
+}

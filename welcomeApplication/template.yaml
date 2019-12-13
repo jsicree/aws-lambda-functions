@@ -1,0 +1,56 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  helloFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: helloFunction/hello_function.lambda_handler
+      Runtime: python3.6
+      Description: ''
+      MemorySize: 512
+      Timeout: 15
+      CodeUri: .debug/
+      Events:
+        LambdaMicroservice:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: GET
+  helloFunctionPermission:
+    Type: 'AWS::Lambda::Permission'
+    Properties:
+      Action: 'lambda:InvokeFunction'
+      FunctionName:
+        'Fn::GetAtt':
+          - helloFunction
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        'Fn::Sub': 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:*/*/*/*'
+  goodbyeFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: goodbyeFunction/goodbye_function.lambda_handler
+      Runtime: python3.6
+      Description: ''
+      MemorySize: 512
+      Timeout: 15
+      CodeUri: .debug/
+      Events:
+        LambdaMicroservice:
+          Type: Api
+          Properties:
+            Path: /goodbye
+            Method: GET
+  goodbyeFunctionPermission:
+    Type: 'AWS::Lambda::Permission'
+    Properties:
+      Action: 'lambda:InvokeFunction'
+      FunctionName:
+        'Fn::GetAtt':
+          - goodbyeFunction
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        'Fn::Sub': 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:*/*/*/*'

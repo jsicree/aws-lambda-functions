@@ -1,0 +1,20 @@
+{
+    "goodbyeFunction": {
+        "lambda": {},
+        "apigateway": {
+            "path": "/goodbye",
+            "method": {
+                "value": "GET",
+                "items": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE",
+                    "HEAD",
+                    "OPTIONS",
+                    "PATCH"
+                ]
+            }
+        }
+    }
+}
